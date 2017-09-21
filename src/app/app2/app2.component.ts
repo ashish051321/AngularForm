@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  // templateUrl: './app.component.html',
-  template:`
-  <app2></app2>
-  `,
-  styleUrls: ['./app.component.css']
+  selector: 'app2',
+  templateUrl: './app2.component.html',
+  styleUrls: ['./app2.component.css']
 })
-export class AppComponent {
+export class App2Component {
   title = 'app';
   submittedFormValues;
 

@@ -1,20 +1,37 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+This is going to be a Template Driven Form
+<h3>Enter your details</h3>
+<br>Is the form Valid: <strong>{{myForm.valid}}</strong> 
+<br>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
 
+  <table cellpadding="2" width="20%" align="center" cellspacing="2">
+    <tr>
+      <td>Name</td>
+      <td><input type=text name="name" id="name" size="30" ngModel required></td>
+    </tr>
+
+    <tr>
+      <td>Sex</td>
+      <td><input type="radio" name="sex" value="male" size="10" ngModel>Male
+          <input type="radio" name="sex" value="Female" size="10" ngModel>Female</td>
+    </tr>
+
+    <tr>
+      <td>City</td>
+      <td>
+        <select name="City" ngModel>
+          <option value="-1" selected>select..</option>
+          <option value="New Delhi">NEW DELHI</option>
+          <option value="Mumbai">MUMBAI</option>
+          <option value="Goa">GOA</option>
+          <option value="Patna">PATNA</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Submit Form" /></td>
+    </tr>
+  </table>
+</form>
+<strong>You provided the following details:-</strong>
+<div *ngFor="let formValue of submittedFormValues"><strong>{{formValue}}</strong></div>
